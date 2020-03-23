@@ -1,0 +1,60 @@
+<!DOCTYPE html> <!-- To-Do List // landonisonline -->
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Shopping list // landonisonline</title>
+</head>
+
+<body>
+	<div class= "header">My Shopping List</div>
+	<br>
+	<div>
+		<label class= "field-label" for="item">Enter a new item:</label>
+		<input type="text" name="item" id="item">
+		<button>Add item</button>
+	</div>
+	<ul>
+
+	</ul>
+
+
+	<script>
+
+		const list = document.querySelector('ul');
+		const input = document.querySelector('input');
+		const button = document.querySelector('button');
+
+		button.onclick = function() {
+			//Assigns field value to variable
+			let myItem = input.value;
+			//Clears field
+			input.value = '';
+
+			//Creates elements for the list
+			const listItem = document.createElement('li');
+			const listText = document.createElement('span');
+			const listBtn = document.createElement('button');
+
+			//Creates list items with myItem
+			listItem.appendChild(listText);
+			listText.textContent = myItem;
+			listItem.appendChild(listBtn);
+			listBtn.textContent = 'Remove';
+			list.appendChild(listItem);
+
+			//Adds an ooption to delete
+			listBtn.onclick = function(e) {
+				list.removeChild(listItem);
+			}
+			//Focus' cursor to input field
+			input.focus();
+
+		}
+
+	</script>
+</body>
+
+</html>
